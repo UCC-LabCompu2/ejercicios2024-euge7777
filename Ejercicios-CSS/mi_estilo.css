@@ -1,0 +1,21 @@
+body{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(to right, red, deeppink);
+}
+div{
+    border: 2px dashed black;
+    margin: 40px;
+    padding: 5px 30px;
+    border-radius: 15%;
+    box-shadow: 10px 12px cornflowerblue;
+}
+#principal{
+    width: 50px;
+    float: left;
+    border-radius: 50%;
+}
+div.especial h3{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 10px 5px aquamarine;
+}
