@@ -27,3 +27,22 @@ function cambiarUnidades (id,value) {
         document.lasUnidades.unid_pie = 3 * value;
     }
 }
+/**
+ * Conversor de unidades de grados  radianes
+ * @method convertirGR
+ * @param {string} id - El id de los inputs de grados o radianes
+ * @param {numbre} value - El valor de los inputs de grados o radianes
+ * @return
+ */
+function convertirGR (id){
+    var grad, rad;
+    if (id=="grados"){
+        grad = document.getElementById(elementId="grados").value;
+        rad = (grad*Nath.PI)/180;
+    } else if (id=="radianes"){
+        rad = document.getElementById(elementId="radianes").value;
+        grad = (rad*180)/Math.PI;
+    }
+    document.getElementById(elementId="grados").value=grad;
+    document.getElementById(elementId="radianes").value=rad;
+}
