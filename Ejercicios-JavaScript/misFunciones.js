@@ -125,24 +125,23 @@ let calcularDivision = () => {
 
 /**
 */
-function cargarWeb (){
-    var cant, unidad, urlComp;
+let cargarWeb = () => {
+    let unit,cant, urlComb;
     cant = document.getElementById("distancia").value;
-    unidad = document.getElementById("unidades")[0].value;
-    urlComp = "segundaWeb.html#" + cant + "#" + unidad;
-    window.open(urlComp);
+    unit = document.getElementsByName("unidades")[0].value;
+    urlComb = "segundaWeb.html#" + cant + "#" + unit;
+    window.open(urlComb);
 }
 
 /**
 */
-function cargarResultado() {
-    var urlComp, can, un;
-
-    urlComp = window.location.href.split("/")[5];
-    can = urlComp.split("#")[1];
-    un = urlComp.split("#")[2];
-
-    document.getElementById("dist").value = can + " " + un;
+let cargarResultado = () => {
+    let cant, unit, urlComb;
+    urlComb = window.location.href;
+    urlComb = UrlCompleta.split("#");
+    cant = urlComb[1];
+    unit = urlComb[2];
+    document.getElementById("dist") = cant + " " + unit
 }
 
 /**
