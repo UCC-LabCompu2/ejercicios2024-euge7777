@@ -31,7 +31,7 @@ function cambiarUnidades (id,value) {
  * Conversor de unidades de grados  radianes
  * @method convertirGR
  * @param {string} id - El id de los inputs de grados o radianes
- * @param {numbre} value - El valor de los inputs de grados o radianes
+ * @param {number} value - El valor de los inputs de grados o radianes
  * @return
  */
 function convertirGR (id){
@@ -43,6 +43,20 @@ function convertirGR (id){
         rad = document.getElementById(elementId="radianes").value;
         grad = (rad*180)/Math.PI;
     }
-    document.getElementById(elementId="grados").value=grad;
-    document.getElementById(elementId="radianes").value=rad;
+    document.getElementById("grados").value=grad;
+    document.getElementById("radianes").value=rad;
+}
+
+/**
+ * Mostrar u ocultar un div
+ * @method mostrar_ocultar
+ * @param {string}valorMO - el  id del div que se desea mostrar / ocultar
+ * @return
+ */
+function mostrar_ocultar (valorMO){
+    if (valorMO=="val_mostrar"){
+        document.getElementById("divMO").style.display='block';
+    } else if (valorMO=="val_ocultar"){
+        document.getElementById("divMO").style.display='none';
+    }
 }
