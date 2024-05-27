@@ -146,20 +146,20 @@ let cargarResultado = () => {
 
 /**
 */
-function guardarLocalStorage (){
-    let distancia, unidad;
-    distancia = document.getElementById("distancia").value;
-    unidad = document.getElementsByName("unidades")[0].value;
-    localStorage.setItem("distanciaLS", distancia);
-    localStorage.setItem("unidadesLS", unidad);
-    window.open('segundaWeb_copia.html');
+let guardarLS = () => {
+    let cant, unit;
+    unit = document.getElementsByName("unidades")[0].value;
+    cant = document.getElementById("distancia").value;
+    sessionStorage.setItem("cantidad",cant);
+    sessionStorage.setItem("unidad",unit);
+    window.open("segundaWeb_copia.html");
 }
 
 /**
 */
-function cargarLocalStorage (){
-    let cant, un;
-    cant = localStorage.getItem("distanciaLS");
-    un = localStorage.getItem("unidadesLS");
-    document.getElementById("dist").value=cant + " " + un;
+let cargarLS = () => {
+    let cant, unit;
+    cant = sessionStorage.getItem("cantidad");
+    unit = sessionStorage.getItem("unidad");
+    document.getElementById("dist").value = cant + " " + unit;
 }
