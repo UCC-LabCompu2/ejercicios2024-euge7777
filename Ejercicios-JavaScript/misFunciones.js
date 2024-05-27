@@ -83,43 +83,43 @@ function mostrar_ocultar (valorMO){
 * Sumar valores ingresados por el usuario
 * @method calcularSuma
 */
-function calcularSuma(){
-    var num1, num2;
-    num1=Number(document.getElementsByName("sum_num1")[0].value);
-    num2=Number(document.getElementsByName("sum_num2")[0].value);
-    document.getElementsByName("sum_total")[0].value=num1+Number(num2);
-
+let calcularSuma = () => {
+    let num1, num2
+    num1 = Number(document.getElementsByName("sum_num1")[0].value)
+    num2 = Number(document.getElementsByName("sum_num2")[0].value)
+    document.getElementsByName("sum_total")[0].innerHTML = num1 + num2
 }
 
 /**
 * Restar los valores ingresados por el usuario
 * @method calcularResta
 */
-function calcularResta(){
-    var num1, num2;
-    num1=Number(document.getElementsByName("res_num1")[0].value);
-    num2=Number(document.getElementsByName("res_num2")[0].value);
-    document.getElementsByName("res_total")[0].value=num1-Number(num2);
+let calcularResta = () => {
+    let num1, num2
+    num1 = Number(document.getElementsByName("res_num1")[0].value)
+    num2 = Number(document.getElementsByName("res_num2")[0].value)
+    document.getElementsByName("res_total")[0].innerHTML = num1 - num2
 }
 
 /**
 * Multiplicar los valores por el usuario
 * @method calcularMultiplicacion
 */
-function calcularMultiplicacion (){
-    var num1, num2;
-    num1=Number(document.getElementsByName("mul_num1")[0].value);
-    num2=Number(document.getElementsByName("mul_num2")[0].value);
-    document.getElementsByName("mul_total")[0].value=num1*Number(num2);
+let calcularMultiplicacion = () => {
+    let num1, num2
+    num1 = Number(document.getElementsByName("mul_num1")[0].value)
+    num2 = Number(document.getElementsByName("mul_num2")[0].value)
+    document.getElementsByName("mul_total")[0].innerHTML = num1 * num2
 }
 
 /**
 * Dividir los valores ingresados por el usuario
 * @method calcularDivision
 */
-function calcularDivision (){
-    var num1, num2;
-    num1=Number(document.getElementsByName("div_num1")[0].value);
-    num2=Number(document.getElementsByName("div_num2")[0].value);
-    document.getElementsByName("div_total")[0].value=num1/Number(num2);
+let calcularDivision = () => {
+    let num1, num2
+    num1 = Number(document.getElementsByName("div_num1")[0].value)
+    num2 = Number(document.getElementsByName("div_num2")[0].value)
+    document.getElementsByName("div_total")[0].innerHTML = num1 / num2
 }
+
