@@ -191,3 +191,35 @@ function dibujarCirCuad (){
     ctx.fillStyle = "#8b4c99";
     ctx.fill();
 }
+
+/**
+* canvas para dibujar
+* @method dibujar
+/*
+var badera;
+function dibujar (event){
+    var canvas = document.getElementById("canvasAdibujar");
+    var ctx = canvas.getCintext("2d");
+
+    var posX = event.clientX;
+    var posY = event.clientY;
+    console.log(posX, posY);
+
+    canvas.onmousedown = function () {bandera=true};
+    canvas.onmouseup = function () {bandera = false};
+
+    if (bandera==true){
+        ctx.fillRect (posX, posY, 5, 5);
+        ctx.fill;
+    }
+}
+/**
+* Limpiar lo dibujado en el canvas
+* @method limparCanvas
+*/
+function limpiarCanvas (){
+    var canvas = document.getElementById("canvasAdibujar");
+    var ctx = canvas.getCintext("2d");
+
+    canvas.width=canvas.width;
+}
