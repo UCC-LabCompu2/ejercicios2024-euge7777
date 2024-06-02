@@ -129,7 +129,7 @@ let cargarWeb = () => {
     let unit,cant, urlComb;
     cant = document.getElementById("distancia").value;
     unit = document.getElementsByName("unidades")[0].value;
-    urlComb = "segundaWeb.html#" + cant + "#" + unit;
+    urlComb = ('segundaWeb.html#${cant}#${unit}');
     window.open(urlComb);
 }
 
@@ -141,17 +141,17 @@ let cargarResultado = () => {
     urlComb = UrlCompleta.split("#");
     cant = urlComb[1];
     unit = urlComb[2];
-    document.getElementById("dist") = cant + " " + unit
+    document.getElementById("dist") ='${cant} ${unit}';
 }
 
 /**
 */
 let guardarLS = () => {
     let cant, unit;
-    unit = document.getElementsByName("unidades")[0].value;
+    unit = document.getElementsByName("unidades").value;
     cant = document.getElementById("distancia").value;
-    sessionStorage.setItem("cantidad",cant);
-    sessionStorage.setItem("unidad",unit);
+    LocalStorage.setItem("cantidad",cant);
+    LocalStorage.setItem("unidad",unit);
     window.open("segundaWeb_copia.html");
 }
 
@@ -159,7 +159,7 @@ let guardarLS = () => {
 */
 let cargarLS = () => {
     let cant, unit;
-    cant = sessionStorage.getItem("cantidad");
-    unit = sessionStorage.getItem("unidad");
-    document.getElementById("dist").value = cant + " " + unit;
+    cant = LocalStorage.getItem("cantidad");
+    unit = LocalStorage.getItem("unidad");
+    document.getElementById("dist").value = '${cant} ${unit}';
 }
