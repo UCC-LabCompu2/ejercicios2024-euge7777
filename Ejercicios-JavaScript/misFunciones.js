@@ -124,6 +124,8 @@ let calcularDivision = () => {
 }
 
 /**
+* carga los datos ingresados por el usuario al URL y pasa a la otra pagina 
+* @method cargarWeb
 */
 let cargarWeb = () => {
     let unit,cant, urlComb;
@@ -134,6 +136,8 @@ let cargarWeb = () => {
 }
 
 /**
+* carga los resultados de la pagina basandosa en lo del URL 
+* @method cargarResultado
 */
 let cargarResultado = () => {
     let cant, unit, urlComb;
@@ -145,6 +149,8 @@ let cargarResultado = () => {
 }
 
 /**
+* toma los valores de distancia y unidad, los almacena en el local storage y redirige hacia la segunda web
+* @method guardarLS
 */
 let guardarLS = () => {
     let cant, unit;
@@ -156,10 +162,32 @@ let guardarLS = () => {
 }
 
 /**
+* carga los valores de distancia y unidad almacenados en el local storage 
+* @method cargarLS
 */
 let cargarLS = () => {
     let cant, unit;
     cant = LocalStorage.getItem("cantidad");
     unit = LocalStorage.getItem("unidad");
     document.getElementById("dist").value = '${cant} ${unit}';
+}
+
+/**
+ * dibuja un círculo y un cuadrado en el canvas
+ * @method dibujarCirCuad
+ */
+function dibujarCirCuad (){
+    var canvas = getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var xMax = canvas.width;
+    var yMax = canvas.height;
+    var margen = 5;
+
+    ctx.fillStyle = "#333899";
+    ctx.fillRect (0, 0, 40, 40)
+
+    ctx.fillArc (xMax/2, yMax/2, 20, 0, 2*Math.PI)
+    ctx.stroke();
+    ctx.fillStyle = "#8b4c99";
+    ctx.fill();
 }
