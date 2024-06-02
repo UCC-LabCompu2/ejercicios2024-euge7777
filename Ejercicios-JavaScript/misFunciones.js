@@ -192,10 +192,6 @@ function dibujarCirCuad (){
     ctx.fill();
 }
 
-/**
-* canvas para dibujar
-* @method dibujar
-/*
 var badera;
 function dibujar (event){
     var canvas = document.getElementById("canvasAdibujar");
@@ -213,6 +209,7 @@ function dibujar (event){
         ctx.fill;
     }
 }
+
 /**
 * Limpiar lo dibujado en el canvas
 * @method limparCanvas
@@ -222,4 +219,56 @@ function limpiarCanvas (){
     var ctx = canvas.getCintext("2d");
 
     canvas.width=canvas.width;
+}
+
+/**
+* Dibujar canvas cuadriculado
+* @method dibujarCuadriculado
+*/
+function dibujarCuadricualdo (){
+    var canvas = document.getElementById("canvasAdibujar");
+    var ctx = canvas.getCintext("2d");
+
+    const xMax = canvas.width
+    const yMax = canvas.height
+
+    // dibujo de lineas horizontales
+    ctx.beginPath();
+    for (let i = paso; i <yMax;) {
+        ctx.beginPath()
+        ctx.moveTo(0, i)
+        ctx.lineTo(xMax, i)
+        ctx.stroke()
+        i=i+20;
+        ctx.closePath()
+    }
+
+    // dibujo de líneas verticales
+    ctx.beginPath()
+    for (let i = paso; i < xMax;) {
+        ctx.moveTo(i, 0)
+        ctx.lineTo(i, xMax)
+        ctx.strokeStyle = "#3e67d9";
+        ctx.stroke()
+        i=i+20;
+        ctx.closePath();
+    }
+
+    // dibujar eje X
+    ctx.beginPath()
+    ctx.moveTo(0, yMax/2)
+    ctx.lineTo(xMax, yMax/2)
+    ctx.strokeStyle = "#d91c00";
+    ctx.stroke()
+
+    ctx.closePath()
+
+    // dibujar eje Y
+    ctx.beginPath()
+    ctx.moveTo(xMax/2, 0)
+    ctx.lineTo(xMax/2, yMax)
+    ctx.strokeStyle = "#d91c00";
+    ctx.stroke()
+    ctx.closePath()
+
 }
