@@ -225,49 +225,45 @@ function limpiarCanvas (){
 * Dibujar canvas cuadriculado
 * @method dibujarCuadriculado
 */
-function dibujarCuadricualdo (){
-    var canvas = document.getElementById("canvasAdibujar");
-    var ctx = canvas.getCintext("2d");
+let dibujarCuadriculado = () => {
+    const canvas = document.getElementById("myCanvas")
+    const ctx = canvas.getContext("2d")
 
-    const xMax = canvas.width
-    const yMax = canvas.height
+    const xmax = canvas.width
+    const ymax = canvas.height
+    const paso = 40
 
+    ctx.strokeStyle = "#bbb9b9"
     // dibujo de lineas horizontales
-    ctx.beginPath();
-    for (let i = paso; i <yMax;) {
+    for (let i = paso; i < ymax; i += paso) {
         ctx.beginPath()
         ctx.moveTo(0, i)
-        ctx.lineTo(xMax, i)
+        ctx.lineTo(xmax, i)
         ctx.stroke()
-        i=i+20;
         ctx.closePath()
     }
 
     // dibujo de líneas verticales
-    ctx.beginPath()
-    for (let i = paso; i < xMax;) {
+    for (let i = paso; i < xmax; i += paso) {
+        ctx.beginPath()
         ctx.moveTo(i, 0)
-        ctx.lineTo(i, xMax)
-        ctx.strokeStyle = "#3e67d9";
+        ctx.lineTo(i, xmax)
         ctx.stroke()
-        i=i+20;
-        ctx.closePath();
     }
 
     // dibujar eje X
     ctx.beginPath()
-    ctx.moveTo(0, yMax/2)
-    ctx.lineTo(xMax, yMax/2)
-    ctx.strokeStyle = "#d91c00";
+    ctx.moveTo(0, ymax/2)
+    ctx.lineTo(xmax, ymax/2)
+    ctx.strokeStyle = "#000000"
     ctx.stroke()
-
     ctx.closePath()
 
     // dibujar eje Y
     ctx.beginPath()
-    ctx.moveTo(xMax/2, 0)
-    ctx.lineTo(xMax/2, yMax)
-    ctx.strokeStyle = "#d91c00";
+    ctx.moveTo(xmax/2, 0)
+    ctx.lineTo(xmax/2, ymax)
+    ctx.strokeStyle = "#000000"
     ctx.stroke()
     ctx.closePath()
 
