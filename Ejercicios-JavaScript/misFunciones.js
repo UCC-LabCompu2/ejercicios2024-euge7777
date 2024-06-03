@@ -272,3 +272,22 @@ function dibujarCuadricualdo (){
     ctx.closePath()
 
 }
+
+/**
+ * Dibujar imagen en un canvas
+ * @method dibujarImagen
+ * @param {number} posX
+ * @param {number} posY
+ */
+function dibujarImagen(posX, posY){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext ("2d");
+
+    console.log(posX, posY);
+    var img = new Image ();
+    img.scr = "images/auto.png";
+    canvas.width = canvas.width;
+    img.onload = function (){
+    ctx.drawImge(img, 0, 0);
+    }
+}
