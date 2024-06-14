@@ -80,9 +80,9 @@ function mostrar_ocultar (valorMO){
 }
 
 /**
-* Sumar valores ingresados por el usuario
-* @method calcularSuma
-*/
+ * Sumar valores ingresados por el usuario
+ * @method calcularSuma
+ */
 let calcularSuma = () => {
     let num1, num2
     num1 = Number(document.getElementsByName("sum_num1")[0].value)
@@ -91,9 +91,9 @@ let calcularSuma = () => {
 }
 
 /**
-* Restar los valores ingresados por el usuario
-* @method calcularResta
-*/
+ * Restar los valores ingresados por el usuario
+ * @method calcularResta
+ */
 let calcularResta = () => {
     let num1, num2
     num1 = Number(document.getElementsByName("res_num1")[0].value)
@@ -102,9 +102,9 @@ let calcularResta = () => {
 }
 
 /**
-* Multiplicar los valores por el usuario
-* @method calcularMultiplicacion
-*/
+ * Multiplicar los valores por el usuario
+ * @method calcularMultiplicacion
+ */
 let calcularMultiplicacion = () => {
     let num1, num2
     num1 = Number(document.getElementsByName("mul_num1")[0].value)
@@ -113,9 +113,9 @@ let calcularMultiplicacion = () => {
 }
 
 /**
-* Dividir los valores ingresados por el usuario
-* @method calcularDivision
-*/
+ * Dividir los valores ingresados por el usuario
+ * @method calcularDivision
+ */
 let calcularDivision = () => {
     let num1, num2
     num1 = Number(document.getElementsByName("div_num1")[0].value)
@@ -124,9 +124,9 @@ let calcularDivision = () => {
 }
 
 /**
-* carga los datos ingresados por el usuario al URL y pasa a la otra pagina 
-* @method cargarWeb
-*/
+ * carga los datos ingresados por el usuario al URL y pasa a la otra pagina 
+ * @method cargarWeb
+ */
 let cargarWeb = () => {
     let unit,cant, urlComb;
     cant = document.getElementById("distancia").value;
@@ -136,9 +136,9 @@ let cargarWeb = () => {
 }
 
 /**
-* carga los resultados de la pagina basandosa en lo del URL 
-* @method cargarResultado
-*/
+ * carga los resultados de la pagina basandosa en lo del URL 
+ * @method cargarResultado
+ */
 let cargarResultado = () => {
     let cant, unit, urlComb;
     urlComb = window.location.href;
@@ -149,9 +149,9 @@ let cargarResultado = () => {
 }
 
 /**
-* toma los valores de distancia y unidad, los almacena en el local storage y redirige hacia la segunda web
-* @method guardarLS
-*/
+ * toma los valores de distancia y unidad, los almacena en el local storage y redirige hacia la segunda web
+ * @method guardarLS
+ */
 let guardarLS = () => {
     let cant, unit;
     unit = document.getElementsByName("unidades").value;
@@ -162,9 +162,9 @@ let guardarLS = () => {
 }
 
 /**
-* carga los valores de distancia y unidad almacenados en el local storage 
-* @method cargarLS
-*/
+ * carga los valores de distancia y unidad almacenados en el local storage 
+ * @method cargarLS
+ */
 let cargarLS = () => {
     let cant, unit;
     cant = LocalStorage.getItem("cantidad");
@@ -215,9 +215,9 @@ function dibujar (event){
 }
 
 /**
-* Limpiar lo dibujado en el canvas
-* @method limparCanvas
-*/
+ * Limpiar lo dibujado en el canvas
+ * @method limparCanvas
+ */
 function limpiarCanvas (){
     var canvas = document.getElementById("canvasAdibujar");
     var ctx = canvas.getCintext("2d");
@@ -226,9 +226,9 @@ function limpiarCanvas (){
 }
 
 /**
-* Dibujar canvas cuadriculado
-* @method dibujarCuadriculado
-*/
+ * Dibujar canvas cuadriculado
+ * @method dibujarCuadriculado
+ */
 let dibujarCuadriculado = () => {
     const canvas = document.getElementById("myCanvas")
     const ctx = canvas.getContext("2d")
@@ -270,24 +270,58 @@ let dibujarCuadriculado = () => {
     ctx.strokeStyle = "#000000"
     ctx.stroke()
     ctx.closePath()
-
 }
 
 /**
- * Dibujar imagen en un canvas
+ * Dibuja una imagen en las coordenadas ingresadas por el usuario
  * @method dibujarImagen
- * @param {number} posX
- * @param {number} posY
+ * @param posX posicion X de la imagen
+ * @param posY posicion Y de la imagen
  */
-function dibujarImagen(posX, posY){
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext ("2d");
+let dibujarImagen = (posX, posY) => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
 
     console.log(posX, posY);
-    var img = new Image ();
-    img.scr = "images/auto.png";
+    const img = new Image();
+    img.src = "images/auto.png";
+
     canvas.width = canvas.width;
+
+
     img.onload = function (){
-    ctx.drawImge(img, 0, 0);
+        const width = this.naturalWidth;
+        const height = this.naturalHeight;
+        console.log(width, height);
+
+        if(posY<0 || posX<0){
+            openDialog();
+        }else if(canvas.width-width<posX || canvas.height-height<posY){
+            openDialog();
+        }else{
+            ctx.drawImage(img, posX, posY);
+        }
     }
 }
+
+/** 
+ * @method openDialog
+ * Muestra el dialogo de error
+ */
+let openDialog = () => {
+    const dialog = document.getElementById("myDialog");
+    dialog.showModal();
+}
+
+/**
+ * Cierra el dialogo de error
+ * @method closeDialog
+ */
+let closeDialog = () => {
+    const dialog = document.getElementById("myDialog");
+    dialog.close();
+}
+
+
+
+
