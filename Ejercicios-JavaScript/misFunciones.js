@@ -341,6 +341,30 @@ let closeDialog = () => {
     dialog.close();
 }
 
+x=0; 
+dx=2;
+/**
+ * dibuja un auto de izquierda a derecha del canvas en un intervalo de 30 seg
+ * @method animarAuto
+ */
+function animarAuto (){
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    canvas.width = canvas.width;
+
+    var img = new Image ();
+    img.src = "images/auto.png"
+    
+    img.onload = function () {
+        ctx.drawImage (img, x, 100);
+    }
+    
+    if (x > canvas.width) {
+        x = 0;
+    }
+    x += dx;
+}
 
 
 
