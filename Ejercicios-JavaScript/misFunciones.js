@@ -192,6 +192,10 @@ function dibujarCirCuad (){
     ctx.fill();
 }
 
+/**
+ * asigna listener al canvas para poder dibujar
+ * @method dibujar
+ */
 var badera;
 function dibujar (event){
     var canvas = document.getElementById("canvasAdibujar");
