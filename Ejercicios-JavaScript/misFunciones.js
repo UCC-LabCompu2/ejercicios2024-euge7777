@@ -347,24 +347,41 @@ dx=2;
  * dibuja un auto de izquierda a derecha del canvas en un intervalo de 30 seg
  * @method animarAuto
  */
-function animarAuto (){
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
+let animarAuto = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
 
-    canvas.width = canvas.width;
+    const img = new Image();
+    img.src = "images/auto.png";
 
-    var img = new Image ();
-    img.src = "images/auto.png"
-    
-    img.onload = function () {
-        ctx.drawImage (img, x, 100);
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
     }
-    
-    if (x > canvas.width) {
-        x = 0;
+
+    if(x>canvas.width){
+        x=0;
     }
-    x += dx;
+    x+=dx;
 }
 
+var intervalId;
+let detenerAuto = () => {
+    console.log("Se detuvo el auto")
+    clearInterval(intervalId); // Detener la animación
+}
 
+let comenzarAnimacion = () => {
+    console.log("Se llamo a comenzar animacion")
+    intervalId = setInterval(animarAuto, 10);
+    setTimeout(detenerAuto, 6000);
+}
 
+let animarNuevo = () => {
+  setTimeout(cancelarAnimacion, 6000);
+  requestAnimationFrame(animarAuto);
+}
+
+let cancelarAnimacion = () => {
+  cancelAnimationFrame(animationId); // Cancelar la animación utilizando el ID almacenado
+};
