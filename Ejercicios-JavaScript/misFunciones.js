@@ -270,6 +270,25 @@ let dibujarCuadriculado = () => {
     ctx.strokeStyle = "#000000"
     ctx.stroke()
     ctx.closePath()
+
+    // numeros eje x
+    let numx=-20;
+    ctx.font = "10pt Verdana";
+    ctx.fillStyle = "blue";
+    for(let i=0;i<xmax;){
+        ctx.fillText(String(numx),i,ymax/2);
+        i += 20;
+        numx++;
+    }
+
+    // numeros eje y
+    let numy = -15;
+    for(let i=0;i<ymax;){
+        ctx.fillText(String(numy),xmax/2,i);
+        i += 20;
+        numx++;
+    }
+}
 }
 
 /**
