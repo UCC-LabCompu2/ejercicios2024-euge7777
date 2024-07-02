@@ -152,12 +152,12 @@ let cargarResultado = () => {
  * toma los valores de distancia y unidad, los almacena en el local storage y redirige hacia la segunda web
  * @method guardarLS
  */
-let guardarLS = () => {
-    let cant, unit;
-    unit = document.getElementsByName("unidades").value;
-    cant = document.getElementById("distancia").value;
-    LocalStorage.setItem("cantidad",cant);
-    LocalStorage.setItem("unidad",unit);
+let guardarLocalStorage = () => {
+    const distancia = document.getElementById("distancia").value;
+    const unidad = document.getElementsByName("unidades")[0].value;
+
+    localStorage.setItem("distanciaLs", distancia);
+    localStorage.setItem("unidadesLs", unidad);
     window.open("segundaWeb_copia.html");
 }
 
@@ -165,11 +165,10 @@ let guardarLS = () => {
  * carga los valores de distancia y unidad almacenados en el local storage 
  * @method cargarLS
  */
-let cargarLS = () => {
-    let cant, unit;
-    cant = LocalStorage.getItem("cantidad");
-    unit = LocalStorage.getItem("unidad");
-    document.getElementById("dist").value = '${cant} ${unit}';
+let cargarLocalStorage = () => {
+    const distancia = localStorage.getItem("distanciaLs");
+    const unidad = localStorage.getItem("unidadesLs");
+    document.getElementById("dist").value = distancia + " " + unidad;
 }
 
 /**
@@ -288,7 +287,6 @@ let dibujarCuadriculado = () => {
         i += 20;
         numx++;
     }
-}
 }
 
 /**
