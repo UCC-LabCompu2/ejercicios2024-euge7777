@@ -53,18 +53,19 @@ let cambiarUnidades = (nombre, valor) => {
  * @param {string} id - El id de los inputs de grados o radianes
  * @param {number} value - El valor de los inputs de grados o radianes
  */
-function convertirGR (id){
+function convertirGR(id) {
     var grad, rad;
-    if (id=="grados"){
-        grad = document.getElementById(elementId="grados").value;
-        rad = (grad*Nath.PI)/180;
-    } else if (id=="radianes"){
-        rad = document.getElementById(elementId="radianes").value;
-        grad = (rad*180)/Math.PI;
+    if (id === "grados") {
+        grad = document.getElementById("grados").value;
+        rad = (grad * Math.PI) / 180;
+    } else if (id === "radianes") {
+        rad = document.getElementById("radianes").value;
+        grad = (rad * 180) / Math.PI;
     }
-    document.getElementById("grados").value=grad;
-    document.getElementById("radianes").value=rad;
+    document.getElementById("grados").value = grad;
+    document.getElementById("radianes").value = rad;
 }
+
 
 /**
  * Mostrar u ocultar un div
